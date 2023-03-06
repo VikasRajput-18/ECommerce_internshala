@@ -1,12 +1,16 @@
-*{
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-header{
+header {
   background-color: #404040;
   padding: 1rem;
+}
+
+a {
+  text-decoration: none !important;
 }
 
 header a {
@@ -14,3 +18,7 @@ header a {
   color: #fff;
   font-weight: 600;
 }
+header a:hover {
+  color: #fff;
+}
+
