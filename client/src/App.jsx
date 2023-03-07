@@ -3,6 +3,7 @@ import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
 import Header from "./components/Header";
 import Body from "./pages/Body";
 import "./App.css";
+import ProductScreen from "./pages/Product/ProductScreen";
 
 const AppLayout = () => {
   return (
@@ -23,8 +24,8 @@ const router = createBrowserRouter([
         element: <Body />,
       },
       {
-        path: "/product/:id",
-        element: <Body />,
+        path: "/product/:slug",
+        element: <ProductScreen />,
       },
     ],
   },
