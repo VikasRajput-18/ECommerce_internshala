@@ -70,7 +70,7 @@ const ProuctList = () => {
                       <p className="product_name">{product.name}</p>
                       <p className="product_price">${product.price}</p>
                     </div>
-                    <button>Add To Cart</button>
+                    <button className="">Add To Cart</button>
                   </div>
                 </Link>
               </div>
