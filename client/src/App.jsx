@@ -4,12 +4,14 @@ import Header from "./components/Header";
 import Body from "./pages/Body";
 import "./App.css";
 import ProductScreen from "./pages/Product/ProductScreen";
+import Footer from "./components/Footer";
 
 const AppLayout = () => {
   return (
     <>
       <Header />
       <Outlet />
+      <Footer />
     </>
   );
 };

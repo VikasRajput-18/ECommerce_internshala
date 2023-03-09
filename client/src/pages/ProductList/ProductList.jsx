@@ -5,6 +5,9 @@ import { Link } from "react-router-dom";
 import { API_BASE_URL } from "../../constant";
 import logger from "use-reducer-logger";
 
+import { Col, Container, Row } from "react-bootstrap";
+import SingleProduct from "../../components/SingleProduct";
+
 const reducer = (state, action) => {
   switch (action.type) {
     case "FETCH_REQUEST": {
@@ -46,7 +49,7 @@ const ProuctList = () => {
   }, []);
 
   return (
-    <main>
+    <Container className="mt-5">
       <h1 className="title">Featured Products</h1>
       <div className="products">
         {loading ? (
@@ -56,29 +59,18 @@ const ProuctList = () => {
         ) : error ? (
           <div>{error}</div>
         ) : (
-          products?.map((product, ind) => {
-            return (
-              <div
-                key={`${product?.slug}-${ind}`}
-                className="product shadow-md position-relative"
-              >
-                <p className="rating position-absolute">{product?.rating}</p>
-                <Link to={`/product/${product.slug}`}>
-                  <img src={product.image} alt={product.name} />
-                  <div className="product_details">
-                    <div className="product_info">
-                      <p className="product_name">{product.name}</p>
-                      <p className="product_price">${product.price}</p>
-                    </div>
-                    <button className="">Add To Cart</button>
-                  </div>
-                </Link>
-              </div>
-            );
-          })
+          <Row className="">
+            {products?.map((product, ind) => {
+              return (
+                <Col key={ind} sm={6} md={4} lg={3} className="mb-3">
+                  <SingleProduct product={product} key={ind} />
+                </Col>
+              );
+            })}
+          </Row>
         )}
       </div>
-    </main>
+    </Container>
   );
 };
 
