@@ -5,6 +5,7 @@ import Body from "./pages/Body";
 import "./App.css";
 import ProductScreen from "./pages/Product/ProductScreen";
 import Footer from "./components/Footer";
+import MessageBox from "./components/MessageBox";
 
 const AppLayout = () => {
   return (

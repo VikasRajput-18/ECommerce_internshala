@@ -7,6 +7,8 @@ import logger from "use-reducer-logger";
 
 import { Col, Container, Row } from "react-bootstrap";
 import SingleProduct from "../../components/SingleProduct";
+import LoadingBox from "../../components/LoadingBox";
+import MessageBox from "../../components/MessageBox";
 
 const reducer = (state, action) => {
   switch (action.type) {
@@ -54,10 +56,10 @@ const ProuctList = () => {
       <div className="products">
         {loading ? (
           <div>
-            <h1>Loading...</h1>
+            <LoadingBox />
           </div>
         ) : error ? (
-          <div>{error}</div>
+          <MessageBox variant="danger">{error}</MessageBox>
         ) : (
           <Row className="">
             {products?.map((product, ind) => {

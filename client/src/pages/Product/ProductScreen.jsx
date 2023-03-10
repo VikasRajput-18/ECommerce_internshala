@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useContext, useEffect } from "react";
 import "./ProductScreen.css";
 import { useParams } from "react-router-dom";
 import { useReducer } from "react";
@@ -7,6 +7,10 @@ import { API_BASE_URL } from "../../constant";
 import { Badge, Button, Card, Col, ListGroup, Row } from "react-bootstrap";
 import Rating from "../../components/Rating";
 import { Helmet } from "react-helmet-async";
+import LoadingBox from "../../components/LoadingBox";
+import MessageBox from "../../components/MessageBox";
+import { getError } from "../../screens/utils";
+import { Store } from "../../store";
 
 const reducer = (state, action) => {
   switch (action.type) {
@@ -45,23 +49,34 @@ const ProductScreen = () => {
       dispatch({ type: "FETCH_SUCCESS", payload: response.data });
     } catch (error) {
       console.log(error);
-      dispatch({ type: "FETCH_FAIL", payload: error.message });
+      dispatch({ type: "FETCH_FAIL", payload: getError(error.message) });
       console.log(error);
     }
+  };
+  const { state, dispatch: ctxDispatch } = useContext(Store);
+
+  console.log(ctxDispatch)
+
+  const addCartHandler = () => {
+    ctxDispatch({
+      type: "CART_ADD_ITEM",
+      payload: { ...product, quantity: 1 },
+    });
   };
 
   useEffect(() => {
     fetchProducts();
   }, []);
-
   return loading ? (
-    <div>Loading...</div>
+    <div>
+      <LoadingBox />
+    </div>
   ) : error ? (
-    <div>{error}</div>
+    <MessageBox variant="danger">{error}</MessageBox>
   ) : (
     <div className="mt-5">
-      <Row>
-        <Col md={6}>
+      <Row className="p-0 m-0">
+        <Col md={5}>
           <img className="img-large" src={product?.image} alt={product?.name} />
         </Col>
         <Col md={3}>
@@ -103,7 +118,9 @@ const ProductScreen = () => {
                 {product?.countInStock > 0 && (
                   <ListGroup.Item>
                     <div className="d-grid">
-                      <Button variant="primary">Add To Cart</Button>
+                      <Button onClick={addCartHandler} variant="primary">
+                        Add To Cart
+                      </Button>
                     </div>
                   </ListGroup.Item>
                 )}
