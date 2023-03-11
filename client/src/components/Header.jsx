@@ -7,8 +7,6 @@ import { Store } from "../store";
 const Header = () => {
   const { state } = useContext(Store);
 
-  console.log(state);
-
   return (
     <div>
       <header>
@@ -22,7 +20,7 @@ const Header = () => {
                 Cart{" "}
                 {state.cart.cartItems.length > 0 && (
                   <Badge pill bg="danger">
-                    {state.cart.cartItems.length}
+                    {state.cart.cartItems.reduce((a, b) => a + b.quantity, 0)}
                   </Badge>
                 )}
               </Link>
