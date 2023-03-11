@@ -55,7 +55,6 @@ const ProductScreen = () => {
 
   const addCartHandler = async () => {
     const existItem = state?.cart.cartItems?.find((x) => x._id === product._id);
-    console.log(existItem);
     const quantity = existItem ? existItem.quantity + 1 : 1;
     const { data } = await axios.get(
       `${API_BASE_URL}/api/product/${product._id}`
@@ -112,7 +111,13 @@ const ProductScreen = () => {
         <Col md={3}>
           <Card>
             <Card.Body>
-              <ListGroup>
+              <ListGroup variant="flush">
+                <ListGroup.Item>
+                  <Row>
+                    <Col>Price:</Col>
+                    <Col>${product.price}</Col>
+                  </Row>
+                </ListGroup.Item>
                 <ListGroup.Item>
                   <Row>
                     <Col>Status : </Col>
