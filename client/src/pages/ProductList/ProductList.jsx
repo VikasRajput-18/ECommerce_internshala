@@ -38,7 +38,7 @@ const ProuctList = () => {
     try {
       dispatch({ type: "FETCH_REQUEST" });
       const response = await axios.get(`${API_BASE_URL}/api/products`);
-      dispatch({ type: "FETCH_SUCCESS", payload: response.data });
+      dispatch({ type: "FETCH_SUCCESS", payload: response.data.allProducts });
     } catch (error) {
       console.log(error);
       dispatch({ type: "FETCH_FAIL", payload: error.message });
