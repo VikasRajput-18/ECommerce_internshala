@@ -41,3 +41,8 @@ footer {
   font-weight: bold;
   margin-left: 15px;
 }
+
+
+.img-thumbnail{
+  height: 80px;
+}

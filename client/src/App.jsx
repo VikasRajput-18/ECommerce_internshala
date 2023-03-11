@@ -6,6 +6,7 @@ import "./App.css";
 import ProductScreen from "./pages/Product/ProductScreen";
 import Footer from "./components/Footer";
 import MessageBox from "./components/MessageBox";
+import CartScreen from "./screens/CartScreen";
 
 const AppLayout = () => {
   return (
@@ -25,6 +26,10 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Body />,
+      },
+      {
+        path: "/cart",
+        element: <CartScreen />,
       },
       {
         path: "/product/:slug",

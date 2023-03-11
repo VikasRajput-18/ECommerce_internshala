@@ -1,8 +1,7 @@
 import React from "react";
 import { Alert } from "react-bootstrap";
 
-const MessageBox = ({ variant }, children) => {
-  console.log(variant, children);
+const MessageBox = ({ variant, children }) => {
   return <Alert variant={variant || "info"}>{children}</Alert>;
 };
 

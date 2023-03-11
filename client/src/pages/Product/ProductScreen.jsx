@@ -1,6 +1,6 @@
 import React, { useContext, useEffect } from "react";
 import "./ProductScreen.css";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { useReducer } from "react";
 import axios from "axios";
 import { API_BASE_URL } from "../../constant";
@@ -31,6 +31,7 @@ const reducer = (state, action) => {
 
 const ProductScreen = () => {
   const { slug } = useParams();
+  const navigate = useNavigate();
 
   const [{ error, loading, product }, dispatch] = useReducer(reducer, {
     error: "",
@@ -69,6 +70,8 @@ const ProductScreen = () => {
       type: "CART_ADD_ITEM",
       payload: { ...product, quantity },
     });
+
+    navigate("/cart");
   };
 
   useEffect(() => {
