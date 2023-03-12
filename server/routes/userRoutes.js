@@ -24,9 +24,10 @@ routes.post(
           token,
         });
       }
+      return res.status(400).send({ message: "Invalid email or password" });
+    } else {
+      return res.status(500).send({ message: "Something went wrong" });
     }
-
-    return res.status(400).send({ message: "Invalid email or password" });
   })
 );
 
