@@ -28,8 +28,6 @@ const SingleProduct = ({ product, ind }) => {
     });
   };
 
-  console.log(product);
-
   return (
     <Card
       key={`${product?.slug}-${ind}`}

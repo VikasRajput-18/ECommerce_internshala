@@ -7,6 +7,8 @@ import ProductScreen from "./pages/Product/ProductScreen";
 import Footer from "./components/Footer";
 import CartScreen from "./screens/CartScreen";
 import SigninScreen from "./pages/SigninScreen";
+import Error from "./screens/Error";
+
 
 const AppLayout = () => {
   return (
@@ -22,6 +24,7 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <AppLayout />,
+    errorElement: <Error />,
     children: [
       {
         path: "/",
