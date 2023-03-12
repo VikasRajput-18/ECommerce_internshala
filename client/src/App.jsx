@@ -11,6 +11,7 @@ import Error from "./screens/Error";
 import ShippingAddressScreen from "./screens/ShippingAddressScreen";
 import SignupScreen from "./pages/SignupScreen";
 import PaymentMethods from "./screens/PaymentMethods";
+import PlaceOrderScreen from "./screens/PlaceOrderScreen";
 
 const AppLayout = () => {
   return (
@@ -43,6 +44,10 @@ const router = createBrowserRouter([
       {
         path: "/payment",
         element: <PaymentMethods />,
+      },
+      {
+        path: "/placeorder",
+        element: <PlaceOrderScreen />,
       },
       {
         path: "/signin",
