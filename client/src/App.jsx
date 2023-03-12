@@ -12,6 +12,7 @@ import ShippingAddressScreen from "./screens/ShippingAddressScreen";
 import SignupScreen from "./pages/SignupScreen";
 import PaymentMethods from "./screens/PaymentMethods";
 import PlaceOrderScreen from "./screens/PlaceOrderScreen";
+import OrderScreen from "./screens/OrderScreen";
 
 const AppLayout = () => {
   return (
@@ -48,6 +49,10 @@ const router = createBrowserRouter([
       {
         path: "/placeorder",
         element: <PlaceOrderScreen />,
+      },
+      {
+        path: "/order/:id",
+        element: <OrderScreen />,
       },
       {
         path: "/signin",

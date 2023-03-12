@@ -23,5 +23,18 @@ routes.post(
     res.status(201).send({ message: "New Order Created", order });
   })
 );
+routes.get(
+  "/orders/:id",
+  isAuth,
+  expressAsyncHandler(async (req, res) => {
+    const { id } = req.params;
+    const order = await Order.findById(id);
+    if (order) {
+      res.status(201).send(order);
+    } else {
+      res.status(404).send({ message: "Order Not Found" });
+    }
+  })
+);
 
 export default routes;
