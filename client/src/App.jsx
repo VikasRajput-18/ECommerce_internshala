@@ -9,7 +9,8 @@ import CartScreen from "./screens/CartScreen";
 import SigninScreen from "./pages/SigninScreen";
 import Error from "./screens/Error";
 import ShippingAddressScreen from "./screens/ShippingAddressScreen";
-
+import SignupScreen from "./pages/SignupScreen";
+import PaymentMethods from "./screens/PaymentMethods";
 
 const AppLayout = () => {
   return (
@@ -40,8 +41,16 @@ const router = createBrowserRouter([
         element: <ShippingAddressScreen />,
       },
       {
+        path: "/payment",
+        element: <PaymentMethods />,
+      },
+      {
         path: "/signin",
         element: <SigninScreen />,
+      },
+      {
+        path: "/signup",
+        element: <SignupScreen />,
       },
       {
         path: "/product/:slug",
