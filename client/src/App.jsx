@@ -13,6 +13,7 @@ import SignupScreen from "./pages/SignupScreen";
 import PaymentMethods from "./screens/PaymentMethods";
 import PlaceOrderScreen from "./screens/PlaceOrderScreen";
 import OrderScreen from "./screens/OrderScreen";
+import OrderHistoryScreen from "./screens/OrderHistory";
 
 const AppLayout = () => {
   return (
@@ -65,6 +66,10 @@ const router = createBrowserRouter([
       {
         path: "/product/:slug",
         element: <ProductScreen />,
+      },
+      {
+        path: "/orderhistory",
+        element: <OrderHistoryScreen />,
       },
     ],
   },
